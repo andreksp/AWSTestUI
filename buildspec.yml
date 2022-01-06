@@ -8,7 +8,7 @@ env:
 phases:
   pre_build:
     commands:
-      - aws s3 rm {{s3_bucket_url}} --recursive
+      - aws s3 rm ${S3_BUCKET} --recursive
   install:
     runtime-versions:
         nodejs: 14
