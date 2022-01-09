@@ -1,6 +1,10 @@
 # AWSTestUI
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
+1) Deploy the application directly on S3 Bucket
+2) Set permission on S3 bucket for public access
+3) buildspec.yml will cleanup the bucket before the deploy
+4) AWS Pipeline will update the bucket after build
+5) Enable S3 bucket for host a web site.
 
 ## Development server
 
