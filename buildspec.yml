@@ -3,12 +3,8 @@ version: 0.2
 env:
     variables:
         CACHE_CONTROL: "86400"
-        S3_BUCKET: "aws-test-ui-bucket"
         BUILD_FOLDER: "dist"
 phases:
-  pre_build:
-    commands:
-      - aws s3 rm s3://${S3_BUCKET} --recursive
   install:
     runtime-versions:
         nodejs: 14
@@ -20,6 +16,10 @@ phases:
     commands:
         - echo Build started 
         - ng build
+  post_build:
+    commands:
+        - echo "Copying files"
+        - cp -r ./dist/* /mnt/efs/
 artifacts:
     files:
         - '**/*'

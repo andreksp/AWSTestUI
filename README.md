@@ -19,7 +19,7 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
     "Version": "2012-10-17",
     "Statement": [
         {
-            "Sid": "AllowDeleteFromPipeline",
+            "Sid": "AllowPipeline",
             "Effect": "Allow",
             "Principal": {
                 "AWS": "*"
