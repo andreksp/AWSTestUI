@@ -2,22 +2,27 @@
 
 ## Objective
 
-1) Deploy an Angular application directly EFS
-2) Use AWS Code Pipeline to build and deploy the files on EFS directly
-3) Create an auto Scaling feature and boot strap script
-4) Based on this article: https://blog.shikisoft.com/deploy-to-amazon-efs-with-aws-codebuild-codepipeline/
+- Deploy an Angular application directly EFS
+- Use AWS Code Pipeline to build and deploy the files on EFS directly
+- Create an auto Scaling feature and boot strap script
+- Based on this article: https://blog.shikisoft.com/deploy-to-amazon-efs-with-aws-codebuild-codepipeline/
+
+![alt text](https://blog.shikisoft.com/assets/images/post_imgs/202008-efs/ec2-efs-architecture-web.webp)
 
 ## Configurations
 
-1) Create EFS
-2) Network
-   1) Create a private subnet. (Simple Subnet)
-   2) Create a routing table a associate with the private subnet.
-   3) Create a NAT Gateway on public subnet
-   4) On the routing table created. add a routing to 0.0.0.0/0 to the Nat gateway created.
-3) Create AWS Pipeline with the build in the private sub net.
-   1) Add the EFS on the AWS Build
-4) Auto Scale Bootstrap Script ( Change the ID of the EFS accordingly)
+- Create EFS
+- Create a private subnet. (Simple Subnet)
+- Create a routing table a associate with the private subnet.
+- Create a NAT Gateway on public subnet
+- On the routing table created. add a routing to 0.0.0.0/0 to the Nat gateway created.
+- Create AWS Pipeline with the build in the private sub net.
+- Add the EFS on the AWS Build
+
+## BootStrap Script for AutoScaling
+
+1) Change the ID of the EFS accordingly
+```sh
     #!/bin/bash
     sudo su
     sudo amazon-linux-extras enable nginx1
@@ -29,3 +34,5 @@
     cd /etc/nginx/
     sed -i 's/usr\/share\/nginx\/html/\mnt\/efs/g' nginx.conf
     sudo systemctl start nginx
+```
+
