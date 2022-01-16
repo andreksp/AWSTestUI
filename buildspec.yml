@@ -19,7 +19,8 @@ phases:
   post_build:
     commands:
         - echo "Copying files"
-        - cp -r ./dist/* /mnt/efs/
+        - rm -rf rm -rf /mnt/efs/awstest-ui
+        - cp -r ./dist/awstest-ui/* /mnt/efs/
 artifacts:
     files:
         - '**/*'
