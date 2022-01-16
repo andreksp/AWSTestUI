@@ -7,7 +7,7 @@
 - Create an auto Scaling feature and boot strap script
 - Based on this article: https://blog.shikisoft.com/deploy-to-amazon-efs-with-aws-codebuild-codepipeline/
 
-![alt text](https://blog.shikisoft.com/assets/images/post_imgs/202008-efs/ec2-efs-architecture-web.webp)
+![alt text](architecture.jpg)
 
 ## Configurations
 
